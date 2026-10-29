@@ -1,27 +1,17 @@
-import { Router} from "express";
-import type{ Request, Response } from "express";
-import { 
-    getEmpleados, 
-    getEmpleado,
-    createEmpleado,
-    updateEmpleado,
-    deleteEmpleado
-} from "../controllers/cliente.controller.js";
+import { Router } from "express";
+import { createCliente, deleteCliente, getCliente, getClientes, updateCliente } from "../controllers/cliente.controller.js";
+
 
 const router = Router();
 
-router.get('/hello', (req: Request, res: Response) => {
-    res.send("<h1>Hello world</h1>")
-})
+router.get("/api/clientes", getClientes);
 
-router.get("/empleados", getEmpleados);
+router.get("/api/cliente/:codigoCliente", getCliente);
 
-router.get("/empleado/:codigoEmpleado", getEmpleado);
+router.post("/api/clientes", createCliente);
 
-router.post("/empleados", createEmpleado);
+router.put("/api/cliente/:codigoCliente", updateCliente);
 
-router.put("/empleados/:codigoEmpleado", updateEmpleado);
-
-router.delete("/empleados/:codigoEmpleado", deleteEmpleado);
+router.delete("/api/cliente/:codigoCliente", deleteCliente);
 
 export default router;
