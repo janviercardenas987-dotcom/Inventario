@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 import { AppDataSource } from "../data-source.js";
-import { Cliente } from "../entities/Clientes.js";
+import { Cliente } from "../entities/Cliente.js";
 
 const clienteRepository = AppDataSource.getRepository(Cliente);
 

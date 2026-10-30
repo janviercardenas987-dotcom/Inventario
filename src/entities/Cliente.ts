@@ -1,4 +1,6 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import type { Relation } from "typeorm";
+import { Pedido } from "./Pedido.js";
 
 @Entity('cliente')
 export class Cliente extends BaseEntity{
@@ -14,7 +16,7 @@ export class Cliente extends BaseEntity{
     @Column({type: 'varchar', length: 45})
     apellido: string;
 
-    @Column({name: 'numeor_telefono', type: 'varchar', length: 45})
+    @Column({name: 'numero_telefono', type: 'varchar', length: 45})
     numTelefono: string;
 
     @Column({type: 'varchar', length: 45})
@@ -22,4 +24,7 @@ export class Cliente extends BaseEntity{
 
     @Column({type: 'varchar', length: 45})
     poblacion: string;
+
+    @OneToMany(() => Pedido, (pedido) => pedido.cliente)
+    pedidos: Relation<Pedido[]>
 }
