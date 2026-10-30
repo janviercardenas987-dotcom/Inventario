@@ -10,11 +10,11 @@ export class DetallePedido{
     @Column({name: 'precio_venta', type:'numeric', precision: 10, scale: 2})
     precioVenta: number;
 
-    @ManyToOne(() => Producto, (producto) => producto.detalle)
+    @ManyToOne(() => Producto, (producto) => producto.detalles)
     @JoinColumn({name: 'codigo_producto'})
     producto: Relation<Producto>
 
-    @ManyToOne(() => Pedido, (pedido) => pedido.detalle)
+    @ManyToOne(() => Pedido, (pedido) => pedido.detalles)
     @JoinColumn({name: 'codigo_pedido'})
     pedido: Relation<Pedido>
 }

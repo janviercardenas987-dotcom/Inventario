@@ -24,5 +24,5 @@ export class Producto extends BaseEntity{
     stock: number;
 
     @OneToMany(() => DetallePedido, (detalle) => detalle.producto)
-    detalle: Relation<DetallePedido>
+    detalles: Relation<DetallePedido>
 }
