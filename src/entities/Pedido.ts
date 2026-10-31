@@ -19,5 +19,5 @@ export class Pedido{
     cliente: Relation<Cliente>;
 
     @OneToMany(() => DetallePedido, (detalle) => detalle.pedido)
-    detalles: Relation<DetallePedido>
+    detalles: Relation<DetallePedido[]>
 }

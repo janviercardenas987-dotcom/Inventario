@@ -1,11 +1,15 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, type Relation } from "typeorm";
+import { Check, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, type Relation } from "typeorm";
 import { Producto } from "./Producto.js";
 import { Pedido } from "./Pedido.js";
 
 @Entity('detalle_pedido')
+@Check('cantidad > 0')
 export class DetallePedido{
     @PrimaryGeneratedColumn({name: 'codigo_detalle', type: 'int'})
     codigoDetalle: number;
+
+    @Column({type: 'int'})
+    cantidad: number
 
     @Column({name: 'precio_venta', type:'numeric', precision: 10, scale: 2})
     precioVenta: number;
